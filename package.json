@@ -38,7 +38,7 @@
         "singleQuote": true,
         "trailingComma": "es5"
     },
-    "name": "gitversion-webpack-plugin",
+    "name": "@bpedziwiatr/gitversion-webpack-plugin",
     "author": "Bartosz Pedziwiatr-Ratajczak",
     "module": "dist/gitversion-webpack-plugin.esm.js",
     "size-limit": [
