@@ -21,7 +21,7 @@ interface GitVersionPluginOptions {
 # Webpack setup
 
 ```js
-const GitVersionPlugin = require('gitversion-webpack-plugin').default;
+const GitVersionPlugin = require('@bpedziwiatr/gitversion-webpack-plugin').default;
 ...
 plugins: [
     ...
