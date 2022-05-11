@@ -38,7 +38,7 @@ export class GitVersionPlugin {
         if (!this.validateFile(fileName)) {
           return;
         }
-        const appendText = `// gitversion - ${this.gitVersion?.FullBuildMetaData}`;
+        const appendText = `// gitversion - ${this.gitVersion?.InformationalVersion}`;
         let fileContent = compilation.assets[fileName].source();
         if(this.appendFile){
           
