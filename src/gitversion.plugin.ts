@@ -4,6 +4,7 @@ import { GitVersionCommand, GitVersionModel } from './gitversion-command'
 interface GitVersionPluginOptions {
   appendFile?: boolean
   regex?: string
+  useDotnet?:boolean
 }
 
 export class GitVersionPlugin {
@@ -20,10 +21,11 @@ export class GitVersionPlugin {
         this.regex =options.regex;
       }
       this.gitVersion = null;
-      this.gitVersionCommand = new GitVersionCommand();      
+      this.gitVersionCommand = new GitVersionCommand(false);      
     }
   
     async apply(compiler: Compiler) {    
+      
       this.gitVersion = await this.gitVersionCommand.getVersion();
       compiler.hooks.emit.tap('GitVersionPlugin', compilation => {
         this.applyGitVersionToAssets(compilation);
