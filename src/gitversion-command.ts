@@ -38,13 +38,33 @@ export interface GitVersionModel {
 }
 export class GitVersionCommand {
 
+    private useDotnet:boolean
+    constructor(useDotnet:boolean) {
+        this.useDotnet = useDotnet;
+        
+    }
     async getVersion():Promise<GitVersionModel> {
+        if(this.useDotnet === true){
+            return this.getVersionDotnet();
+        }
+        else{
+            return this.getVersionExe();
+        }
+    }
+    async getVersionExe():Promise<GitVersionModel> {
         const { stdout, stderr } = await exec('gitversion');
         if(stderr === null){
             throw Error(stderr)
         }
         const gitversion = JSON.parse(stdout);
         return gitversion
-
+    }
+    async getVersionDotnet():Promise<GitVersionModel> {
+        const { stdout, stderr } = await exec('dotnet-gitversion');
+        if(stderr === null){
+            throw Error(stderr)
+        }
+        const gitversion = JSON.parse(stdout);
+        return gitversion
     }
 }
