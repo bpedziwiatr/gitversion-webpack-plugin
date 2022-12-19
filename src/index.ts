@@ -1,4 +1,3 @@
-import { GitVersionPlugin } from "./gitversion.plugin";
-
+import { GitVersionPlugin } from './gitversion.plugin';
 
 export default GitVersionPlugin;

@@ -1,7 +1,3 @@
-
-
 describe('blah', () => {
-  it('works', () => {
-    
-  });
+  it('works', () => {});
 });
