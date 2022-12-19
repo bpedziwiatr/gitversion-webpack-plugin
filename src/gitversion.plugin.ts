@@ -53,27 +53,27 @@ export class GitVersionPlugin {
       }
 
       compilation.assets[fileName] = {
-        source: function () {
+        source: function() {
           console.log('source');
           return fileContent;
         },
-        size: function () {
+        size: function() {
           console.log('size');
           return fileContent ? fileContent.length : 0;
         },
-        buffer: function () {
+        buffer: function() {
           console.log('buffer');
           return Buffer.from(fileContent);
         },
-        map: function () {
+        map: function() {
           console.log('map');
           return {};
         },
-        sourceAndMap: function () {
+        sourceAndMap: function() {
           console.log('sourceAndMap');
           return { source: fileContent, map: {} };
         },
-        updateHash: function () {
+        updateHash: function() {
           console.log('updateHash');
         },
       };
