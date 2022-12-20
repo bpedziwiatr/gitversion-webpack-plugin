@@ -11,20 +11,22 @@ example:
 
 - `appendFile` add gitversion at end if true present, else at begining of file
 - `regex` - regex to find css/js default "\.js$|\.css$"
+- `useDotnet` - params to switch beetween `gitversion` (false) and `dotnet-gitversion` (true)
 
 ```js
 interface GitVersionPluginOptions {
-  appendFile?: boolean
-  regex?: string
+  appendFile?: boolean;
+  regex?: string;
+  useDotnet?: boolean;
 }
 ```
 # Webpack setup
 
 ```js
-const GitVersionPlugin = require('@bpedziwiatr/gitversion-webpack-plugin').default;
+import GitVersionPlugin = require('@bpedziwiatr/gitversion-webpack-plugin');
 ...
 plugins: [
     ...
-    new GitVersionPlugin(),
+    new GitVersionPlugin.default({ useDotnet: true }),
 ]
 ```
